@@ -9,6 +9,17 @@ npm install
 npm run dev
 ```
 
+## Desplegar en Netlify
+
+La configuración de `netlify.toml` ejecuta `npm ci --include=dev` antes de
+`npm run build` para instalar las dependencias de compilación, incluido Vite,
+también en despliegues desde la CLI sin dependencias preinstaladas. Genera la
+versión de producción y publica la carpeta `dist`. No se debe usar
+`npm run dev` como comando de despliegue.
+
+Las dependencias se instalan a partir de `package-lock.json`; `node_modules`
+no se guarda en el repositorio. Para reinstalarlas desde cero, usa `npm ci`.
+
 ## Google Maps
 
 Abre `src/App.jsx` y busca:
