@@ -17,6 +17,11 @@ también en despliegues desde la CLI sin dependencias preinstaladas. Genera la
 versión de producción y publica la carpeta `dist`. No se debe usar
 `npm run dev` como comando de despliegue.
 
+El script de producción ejecuta Vite directamente con Node para evitar errores
+de permisos del ejecutable `node_modules/.bin/vite`. En la configuración de la
+interfaz de Netlify, usa `npm run build` como comando de compilación y `dist`
+como directorio de publicación, nunca `npm run dev`.
+
 Las dependencias se instalan a partir de `package-lock.json`; `node_modules`
 no se guarda en el repositorio. Para reinstalarlas desde cero, usa `npm ci`.
 
